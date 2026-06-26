@@ -1,2 +1,2 @@
 # Mandelbrot
-Mandelbrot Set Explorer
+Dyalog APL based Mandelbrot Set Explorer

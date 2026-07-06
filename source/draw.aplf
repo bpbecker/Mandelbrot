@@ -1,0 +1,13 @@
+ draw;l
+ ⍝ draws Mandelbrot Set
+ ⍝ Brian Becker 2006
+ :If 0≠⎕NC'f'
+     :If 2=⍴⍴cmap ⋄ cmap←256⊥⍉⍣(3=⊢/⍴cmap)⊢cmap ⋄ :EndIf
+     :If (≢cmap)≠l←rez ⋄ cmap←l⍴cmap ⋄ :EndIf
+     :Trap 6
+         'b'⎕WC'bitmap'('keepbits' 1)('cbits'(cmap[set]))
+     :Else
+         →0⊣⎕TKILL ⎕TID
+     :EndTrap
+     'f.image'⎕WS('picture' 'b')
+ :EndIf

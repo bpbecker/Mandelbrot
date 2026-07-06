@@ -1,0 +1,6 @@
+ run
+ ⍝ Mandelbrot Set explorer
+ ⍝ Brian Becker 2006
+ ⎕EX'isolate' 'DRC' 'II' 'IIÐ' 'IIö' 'IÏ' 'o_II' 'ø'
+ 'isolate'⎕CY'isolate'
+ {mandelbrot}&0

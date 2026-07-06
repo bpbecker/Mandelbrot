@@ -1,0 +1,7 @@
+ r←FileExists fname;t
+ :Trap 0
+     r←0>t←fname ⎕NTIE 0
+     ⎕NUNTIE t
+ :Else
+     r←0
+ :EndTrap

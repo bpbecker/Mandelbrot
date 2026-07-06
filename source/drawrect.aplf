@@ -1,0 +1,24 @@
+ drawrect ctl;xy;newxy;hgt;wid;loc;dim;newtop;newbottom;newleft;newright
+ 'f.rect'⎕WS('event' 'mousemove' 0)('event' 'mouseup' 0)
+ xy←'f.rect2'⎕WG'points'
+ newxy←offset+ctl[2 3]
+ hgt←newxy[0]-xy[0]
+ wid←(×newxy[1]-xy[1])×⌊4×|hgt÷3
+ 'f.rect2'⎕WS('size'(hgt,wid))
+ ⍝:If 'Mandelbrot'YesNo'Draw new space?'
+ loc dim←'f.rect2'⎕WG'points' 'size'
+ loc←(loc+dim×dim<0)-offset
+ dim←|dim
+ newtop←top-(top-bottom)×loc[0]÷picdims[0]
+ newbottom←newtop-(top-bottom)×dim[0]÷picdims[0]
+ newleft←left+(right-left)×loc[1]÷picdims[1]
+ newright←newleft+4×(newtop-newbottom)÷3
+ top←newtop ⋄ bottom←newbottom ⋄ left←newleft ⋄ right←newright
+ ⎕EX'f.rect2'
+ truncatestack stackpos
+ updatestack top bottom left right
+ updateset top,bottom,left,right
+ draw
+ ⍝:Else
+ ⍝    ⎕EX'f.rect2'
+ ⍝:EndIf

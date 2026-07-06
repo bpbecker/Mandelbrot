@@ -1,0 +1,50 @@
+ mandelbrot;z;top;bottom;left;right;offset;picdims;b;stack;stackpos;isolates;processes
+ (⎕IO ⎕FR ⎕PP)←0 1287 30
+ init
+l1:draw ⍝ draw the set
+lp:z←⎕DQ'.' ⍝ wait for something to happen
+ :If 0≠⎕NC'f'
+     :Select ⊃z
+     :Case 'f.bdraw' ⍝ user selected draw button (uses numbers entered into form)
+         →check↓lp,l1 ⍝ check for valid coordinates and redraw the set
+     :Case 'f.bedit' ⍝ user selected edit button
+         cmap←f.pal.p1024.State editcmap cmap ⍝ update the colormap
+         →l1
+     :Case 'f.bquit' ⍝ user selected exit button
+         f.isomsg.(Text Visible)←'Isolates Terminating' 1
+         →exit
+     :Case 'f.breset' ⍝ user selected reset button
+         f.(top bottom left).Text←⍕¨top bottom left←1 ¯1 ¯2
+         stack←⍬
+         right←left+4×(top-bottom)÷3
+         updatestack top,bottom,left,right
+         set←mandelbrotset ⍝ reset to original set
+         cmap←f.pal.p1024.State⊃cmapbase ⍝ reset to original colormap
+         →l1
+     :Case 'f.prev'
+         stackpos-←1
+         f.prev.Visible←stackpos≠0
+         f.next.Visible←1
+         →update
+     :Case 'f.next'
+         stackpos+←1
+         f.prev.Visible←1
+         f.next.Visible←stackpos≠(⍴stack)-1
+         →update
+     :Case 'f.threads'
+         processes←f.threads.Value
+         init_isolates processes
+         →lp
+     :Else
+         ⎕←'Unhandled event? '(⍕z)
+         →lp
+     :EndSelect
+update:
+     top bottom left right←stackpos⊃stack
+     updateset top,bottom,left,right
+     →l1
+ :EndIf
+exit:
+ {}isolate.Reset''
+ ⎕EX'f' 'set' 'cmap' 'Conga' 'b' 'cmaps' 'cmapbase' 'mandelbrotset'
+ ⎕TKILL ⎕TNUMS~⎕TID

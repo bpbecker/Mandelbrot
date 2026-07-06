@@ -1,0 +1,27 @@
+ displayMainHelp;h
+ 'h'⎕WC'Form' 'Mandelbrot Explorer Help'('size' 480 640)('coord' 'pixel')
+ 'h.t'⎕WC'text'(5 1↓⎕CR'displayMainHelp')(20 20)
+ ⎕DQ'h'
+ →0
+⍝Mandelbrot Set Explorer
+⍝Brian Becker (2006)
+⍝Written for fun, please use it, improve it, and have fun...
+⍝
+⍝The workspace uses 2 global variables:
+⍝  cmapbase - the base color map for the initial display
+⍝  mandelbrotset - the initial snapshot of the Mandelbrot set
+⍝
+⍝There are 3 input fields: Top, Bottom, and Left
+⍝These allow you to enter coordinates directly.
+⍝The "Right" coordinate is calculated for you as we maintain a fixed aspect ratio.
+⍝
+⍝Buttons:
+⍝  Draw - allows you to "zoom" by drawing a new rectangle to explore
+⍝  Edit - allows you to edit the color map
+⍝  Save - saves the current image as a PNG file
+⍝  Reset - restores the initial color map and Mandelbrot set snapshot
+⍝  Quit - closes the program
+⍝  Help displays this help
+⍝
+⍝ The Update Display During Calculation checkbox allows you to not display the set
+⍝ it it being generated.  This results in a marginal performance improvement.

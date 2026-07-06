@@ -1,0 +1,22 @@
+ r←{hirez}editpixel xy;orig;rgb;c;z
+ orig←r←cmap
+ rgb←256 256 256⊤cmap[set[⊂xy]]
+ 'c'⎕WC'Form' 'Color Editor'('size' 200 200)('coord' 'pixel')
+ 'c.s'⎕WC'button' '&OK'('size' 25 70)('posn' 40 80)('event' 'Select' 1)
+ 'c.u'⎕WC'button' '&Update'('size' 25 70)('posn' 80 80)('event' 'Select' 'draw')
+ 'c.c'⎕WC'button' '&Cancel'('size' 25 70)('posn' 160 80)('event' 'Select' 1)
+ 'c.cb'⎕WC'ColorButton' 'Select Color'('posn' 120 30)('size' 50 50)('otherbutton' 1)('visible' 1)('currentcolor'rgb)('Event' 'ColorChange' 1)
+lp:
+ :Trap 11
+     z←⎕DQ'c'
+     :Select ⊃z
+     :Case 'c.c'
+         r←orig
+         →0
+     :Case 'c.s'
+         r←cmap
+         →0
+     :Else
+         →lp
+     :EndSelect
+ :EndTrap

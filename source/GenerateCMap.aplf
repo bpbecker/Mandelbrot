@@ -1,0 +1,6 @@
+ GenerateCMap;d;n;ft
+ ft←fromto[⍋fromto]
+ n←|-/ft
+ d←(-/256 256 256⊤cmap[ft])÷n
+ cmap[ft[0]+⍳n]←256 256 256⊥⍉(⍉256 256 256⊤cmap[ft[0]])-[1]⌊0.5+d×[1](n,3)⍴3/⍳n
+ 'c.r'⎕WS('fcol'(↓⍉256 256 256⊤cmap))

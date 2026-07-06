@@ -1,0 +1,3 @@
+ redraw
+ updateset top bottom left right
+ draw

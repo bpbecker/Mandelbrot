@@ -1,0 +1,5 @@
+ updatestack tblr
+ stack←stack,⊂tblr
+ stackpos←(⍴stack)-1
+ f.next.Visible←0
+ f.prev.Visible←1<⍴stack

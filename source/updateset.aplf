@@ -1,0 +1,7 @@
+ updateset posn;∆
+ f.(top bottom left).Text←⍕¨3↑posn
+ f.Caption←'Mandelbrot Set Explorer -- calculating --'
+ ∆←⊃2↓⎕AI
+ set←(picdims,f.pal.p1024.State)buildset posn
+ ∆←(⊃2↓⎕AI)-∆
+ f.Caption←'Mandelbrot Set Explorer ',(⍕∆),' ms'

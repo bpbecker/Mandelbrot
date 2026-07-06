@@ -1,0 +1,6 @@
+ updaterect ctl;newyx;hgt;wid;yx
+ yx←'f.rect2'⎕WG'points'
+ newyx←offset+ctl[2 3]
+ hgt←newyx[0]-yx[0]
+ wid←(×newyx[1]-yx[1])×⌊4×|hgt÷3
+ 'f.rect2'⎕WS('size'(hgt,wid))

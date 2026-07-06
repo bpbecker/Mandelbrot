@@ -1,0 +1,9 @@
+ {r}SelectColor a
+ :If 0=⎕NC'r'
+     row←(16×1+hirez)⊥⌊a[2 3]÷20÷2*hirez
+ :Else
+     row←r
+ :EndIf
+ fromto←2↑1↓fromto,row
+ 'c.cb'⎕WS('CurrentColor'(256 256 256⊤cmap[row]))('visible' 1)
+ ⎕NQ'c.cb' 'GotFocus'

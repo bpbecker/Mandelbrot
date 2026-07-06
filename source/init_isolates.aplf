@@ -1,0 +1,21 @@
+ init_isolates processes
+⍝ called upon initialization, or whenever user changes number of processors to use
+ f.isomsg.Visible←1    ⍝ turn form's "Isolates initializing" message on
+ {}isolate.Reset''     ⍝ reset the isolates
+ {}isolate.Config'processors'(processes⌊1111⌶⍬) ⍝ set the number of processors
+ :If processes>1      ⍝ if using more than one processor
+     :Trap 999
+         isolates←isolate.New¨⎕NS¨processes⍴⊂'buildset_core'  ⍝ create the isolates
+     :Else
+         :If '1043 '≡5↑⎕DMX.EM
+             :Trap 999 ⍝ try again
+                 isolates←isolate.New¨⎕NS¨processes⍴⊂'buildset_core'  ⍝ create the isolates
+             :Else
+                 ∘∘∘
+             :EndTrap
+         :Else
+             ∘∘∘
+         :EndIf
+     :EndTrap
+ :EndIf
+ f.isomsg.Visible←0    ⍝ turn the form message off

@@ -1,0 +1,4 @@
+ r←magnitude p
+ ⍝ calculate magnitude of point, if exceeds 2, then point is not in set
+ ⍝ Brian Becker 2006
+ r←4≥+/p*2

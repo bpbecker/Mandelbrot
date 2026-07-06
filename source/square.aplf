@@ -1,0 +1,4 @@
+ r←square p
+ ⍝ square point made of real/imaginary components
+ ⍝ Brian Becker 2006
+ r←((p[0]*2)-(p[1]*2)),2××/p

@@ -1,0 +1,22 @@
+ colorize evt;ref
+⍝ generate random color maps
+ :If 0∊⍴evt
+     :While 1
+         cmap←randomizePalette?¯1+256*3
+         draw
+         :Trap 6 ⍝ value error on f in case form was closed
+             ⎕DL 2÷f.speed.Thumb
+         :Else
+             →0
+         :EndTrap
+     :EndWhile
+ :Else
+     ref←⍎⊃evt
+     :If 0∊⍴ref.Data ⋄ ref.Data←0 ⋄ :EndIf
+     :If ref.Data=0
+         ref.Data←colorize&⍬
+     :Else
+         ⎕TKILL ref.Data
+         ref.Data←0
+     :EndIf
+ :EndIf

@@ -1,0 +1,20 @@
+ r←real buildset_core imaginary;height;i_incr;top;width;r_incr;left;set;coord;inds;cnt;escaped;hirez
+⍝ Calculate new Mandelbrot set - remember using origin 0 (⎕IO←0)
+⍝ real and imaginary are the parameters of the space to calculate
+⍝       real            imaginary
+⍝ [0]   width           height            of the image
+⍝ [1]   increment size  increment size    along each axis
+⍝ [2]   top             left              coordinates
+
+ (height i_incr top)←imaginary            ⍝ split imaginary argument parameters
+ (width r_incr left hirez)←4↑real                 ⍝ split real argument parameters
+ set←coord←,(0J1×top+i_incr×⍳height)∘.+(left+r_incr×⍳width) ⍝ create all points in the image
+ inds←⍳≢r←(≢coord)⍴0                      ⍝ initialize the result and create vector of indices
+ :For cnt :In 1↓⍳256 1024[hirez]          ⍝ loop up to 255 times (the size of our color palette)
+     escaped←4<coord×+coord               ⍝ mark those that have escaped the Mandelbrot set
+     r[escaped/inds]←cnt                  ⍝ set their index in the color palette
+     (inds coord)←(~escaped)∘/¨inds coord ⍝ keep those that have not yet escaped
+     :If 0∊⍴inds ⋄ :Leave ⋄ :EndIf        ⍝ anything left to do?
+     coord←set[inds]+×⍨coord              ⍝ the core Mandelbrot computation... z←(z*2)+c
+ :EndFor
+ r←(height,width)⍴r                       ⍝ reshape to image size

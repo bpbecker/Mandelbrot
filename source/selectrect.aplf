@@ -1,0 +1,19 @@
+ selectrect ctl;yx;center;wid;hgt;pct;newcenter
+ yx←ctl[2 3] ⍝ row and col relative to outer boundary
+ :If 2=ctl[4] ⍝ right click? zoom in by half
+     center←0.5×top right+bottom left  ⍝ center of the current image
+     hgt←top-bottom ⍝ height of the current image
+     wid←4×hgt÷3 ⍝ width of the current image
+     pct←yx÷picdims ⍝ percent in and down from top left
+     newcenter←top left+¯1 1×pct×hgt wid ⍝ new center coordinate
+     (top left)←newcenter+hgt wid÷zoom×2 ¯2
+     bottom←top-hgt÷zoom
+     right←left+4×(top-bottom)÷3
+     truncatestack stackpos
+     updatestack top bottom left right
+     updateset top bottom left right
+     draw
+ :Else
+     'f.rect'⎕WS('event' 'mouseup' 'drawrect')('event' 'mousemove' 'updaterect'yx)
+     'f.rect2'⎕WC'rect'(offset+yx)(0 0)('fcol'(255 255 255))
+ :EndIf

@@ -1,0 +1,13 @@
+ randomizePalette←{
+     start←(0∊⍴⍵)⊃⍵(?3⍴256)
+     start←256 256 256⊤⍣(3≠≢start)⊢start
+     row←?3
+     t←3 1024⍴0
+     t[row;]←start[row]
+     col←?1024
+     other←(⍳3)~row
+     t[other[0];]←col⌽1024⍴256|3×⍳256
+     t[other[1];]←col⌽1024⍴256|7×⍳256
+     t[;0]←0
+     t
+ }

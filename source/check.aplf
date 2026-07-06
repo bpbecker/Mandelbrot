@@ -1,0 +1,19 @@
+ r←check;t;bt;l;mask;mb
+ ⍝ validate user entered coordinates for Mandelbrot Set
+ ⍝ Brian Becker 2006
+ t←validnum'f.top'⎕WG'text' ⍝ validate top coordinate
+ bt←validnum'f.bottom'⎕WG'text' ⍝ validate bottom coordinate
+ l←validnum'f.left'⎕WG'text' ⍝ validate left coordinate
+ →(∨/mask←⊃¨0∊¨⍴¨t bt l)⍴err ⍝ check for any errors
+ (t bt)←(t<bt)⌽t,bt ⍝ if bottom > top, swap them
+ (top bottom)←t bt
+ left←l
+ right←left+4×(top-bottom)÷3 ⍝ calculate right cooridnate based on picture aspect ratio
+ updatestack top,bottom,left,right
+ updateset top,bottom,left,right
+ r←1
+ →0
+err:
+ 'mb'⎕WC'msgbox' 'Invalid number'((1↓¯1↓⊃,/' ',¨(mask/'Top,' 'Bottom,' 'Left,')),((1=+/mask)⊃' are' ' is'),' not valid.')'Error'  ⍝ issue error message
+ ⎕DQ'mb'
+ r←0

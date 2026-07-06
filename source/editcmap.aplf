@@ -1,0 +1,27 @@
+ r←hirez editcmap cmap;row;z;c;fromto;rects;cm;orig
+ r←cmap
+ fromto←0 0
+ orig←cmap←(256∘⊥(⍣(2=≢⍴cmap)))cmap
+ rects←{(10×2*~⍵)×⍳16×2*⍵}hirez
+ 'c'⎕WC'Form' 'Color Selection'('size' 480 640)('coord' 'pixel')
+ 'c.r'⎕WC'rect'(↑,(80+rects)∘.,160+rects)(9 9+10×~hirez)('fcol'(↓⍉256 256 256⊤cmap))('coord' 'pixel')('fstyle' 0)('event' 'MouseDblClick' 'SelectColor')
+ 'c.s'⎕WC'button' '&OK'('size' 25 70)('posn' 40 80)('event' 'Select' 1)
+ 'c.u'⎕WC'button' '&Update'('size' 25 70)('posn' 80 80)('event' 'Select' 'draw')
+ 'c.c'⎕WC'button' '&Cancel'('size' 25 70)('posn' 160 80)('event' 'Select' 1)
+ 'c.g'⎕WC'button' '&Generate'('size' 25 70)('posn' 120 80)('event' 'Select' 'GenerateCMap')
+ 'c.h'⎕WC'button' '&Help'('size' 25 70)('posn' 200 80)('event' 'Select' 'displayCMapHelp')
+ 'c.cb'⎕WC'ColorButton' 'Select Color'('posn' 120 30)('size' 50 50)('otherbutton' 1)('visible' 0)('Event' 'ColorChange' 'UpdateColor')
+lp:
+ :Trap 11
+     z←⎕DQ'c'
+     :Select ⊃z
+     :Case 'c.c'
+         r←orig
+         →0
+     :Case 'c.s'
+         r←cmap
+         →0
+     :Else
+         →lp
+     :EndSelect
+ :EndTrap

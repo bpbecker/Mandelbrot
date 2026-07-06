@@ -1,0 +1,2 @@
+setzoom ctl
+zoom←⊃f.zoom.SelItems/zooms

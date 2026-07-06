@@ -1,0 +1,9 @@
+ toggle ctl
+ :Select ⊃ctl
+ :Case 'f.pal.p256' ⋄ rez←256 ⋄ cmap←0⊃cmaps
+ :Case 'f.pal.p1024' ⋄ rez←1024 ⋄ cmap←1⊃cmaps
+ :Case 'f.prec.p645' ⋄ ⎕FR←645
+ :Case 'f.prec.p1287' ⋄ ⎕FR←1287
+ :Else ⋄ ∘∘∘
+ :EndSelect
+ redraw

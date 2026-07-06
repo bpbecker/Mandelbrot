@@ -1,0 +1,14 @@
+ SaveAsPNG;fb;r;png;dir;file;tn
+ 'fb'⎕WC'filebox' 'Save as PNG' 'My Documents'('filters'(⊂'*.png' 'All PNG files'))('filemode' 'write')
+ 'fb'⎕WS('event' 'fileboxok' 1)('event' 'fileboxcancel' 1)
+ r←⎕DQ'fb'
+ :Select ⊃1↓r
+ :Case 'FileBoxOK'
+     png←b.MakePNG
+     file dir←'fb'⎕WG'file' 'directory'
+     file←(∧\file≠'.')/file
+     (dir,file,'.png')⎕NCREATE tn←¯1+⌊/0,⎕NNUMS
+     png ⎕NAPPEND tn
+     ⎕NUNTIE tn
+ :Case 'FileBoxCancel'
+ :EndSelect

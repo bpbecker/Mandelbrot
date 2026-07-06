@@ -1,0 +1,8 @@
+ r←validnum t;n
+ ⍝ validates t as a number
+ ⍝ Brian Becker 2006
+ r←⍬
+ ((t='-')/t)←'¯'
+ n←⎕VFI t
+ →((,1)≡⊃n)↓0
+ r←⊃⊃//n

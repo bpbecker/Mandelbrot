@@ -1,0 +1,4 @@
+ UpdateColor a
+ cmap[row]←256⊥2⊃a
+ 'c.r'⎕WS('fcol'(↓⍉256 256 256⊤cmap))
+ 'c.cb'⎕WS('visible' 0)

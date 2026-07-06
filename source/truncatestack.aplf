@@ -1,0 +1,2 @@
+ truncatestack pos
+ stack←(pos+1)↑stack

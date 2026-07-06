@@ -1,0 +1,21 @@
+ displayCMapHelp;h
+ 'h'⎕WC'Form' 'Mandelbrot Color Map Help'('size' 480 640)('coord' 'pixel')
+ 'h.t'⎕WC'text'(5 1↓⎕CR'displayCMapHelp')(20 20)
+ ⎕DQ'h'
+ →0
+⍝Mandelbrot Color Map Editor
+⍝Brian Becker (2006)
+⍝Written for fun, please use it, improve it, and have fun...
+⍝
+⍝This program modifies the color map variable (cmap).
+⍝
+⍝ You may click on any color cell and a color selector dialog is opened to
+⍝ allow you to change that cell´s color.
+⍝
+⍝Buttons:
+⍝  OK - updates the global colormap and closes the colormap editor
+⍝  Update - updates the current Mandelbrot set image without leaving the colormap editor
+⍝  Cancel - restores the colormap to its state prior to entering the colormap editor
+⍝  Generate - after selecting colors in any two cells, this button will generate a smooth
+⍝             gradient between the two colors
+⍝  Help - displays this help

@@ -1,0 +1,9 @@
+ r←title YesNo question;msg;prepend
+ prepend←''
+loop:'msg'⎕WC'msgbox'title(prepend,question)'Query'('YES' 'NO')('event' 'msgbtn1' 1)('event' 'msgbtn2' 1)
+ :Select 1⊃⎕DQ'msg'
+ :Case 'MsgBtn1'
+     r←1
+ :Case 'MsgBtn2'
+     r←0
+ :EndSelect

@@ -16,7 +16,7 @@ The color map editor (shown below) is invoked when you click the Edit button. To
 **Generate** If you modify 2 colors in the grid and click Generate, a smooth gradient between those colors will be generated.<br>
 **Help** Displays help for the Color Map Editor
 
-<img src="/img/colormapeditor.png" alt="Color Map Editor" class="center" width="50%">
+<img src="img/colormapeditor.png" alt="Color Map Editor" class="center" width="50%">
 Click the Update button to preview the effect of your changes - they will not be saved until you click the OK button. 
 
 ### Ctrl-Click

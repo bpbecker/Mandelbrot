@@ -12,7 +12,7 @@ This is a project that began in 2006 when I wanted to learn the Dyalog APL's GUI
    * `]import # {folder}` 
  * Start the explorer by entering `run`
 
-<img src="/img/screen.png" alt="Mandelbrot set explorer" class="center" width="75%">
+<img src="img/screen.png" alt="Mandelbrot set explorer" class="center" width="75%">
 
 ## Exploring the Mandelbrot set
 The explorer has a fixed 4:3 aspect ratio. You can zoom in and explore the set in any of three ways:

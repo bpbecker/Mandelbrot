@@ -581,7 +581,7 @@ Click the Update button to preview the effect of your changes - they will not be
 <h3 id="from-the-apl-session">From the APL Session</h3>
 <p>You can manipulate <code>cmap</code> in the APL session. You can either work with it in its vector form, which is a tad inconvenient, or you can create a <code>palette × 3</code> (or <code>3 × palette</code>) matrix with each column (or row) representing values in the range 0-255 for red, green, and blue respectively. </p>
 <p>After manipulating <code>cmap</code> you can click the Draw button, or run the <code>draw</code> function from the session to update the image. If you used the matrix form of <code>cmap</code>, redrawing the image will convert <code>cmap</code> back into vector form.</p>
-<pre><code>      cmap ← 0 0 256⌈⍤0 1⊢256 256 256⊤cmap ⍝ make it more blue
+<pre><code>      cmap ← 0 0 255⌈⍤0 1⊢256 256 256⊤cmap ⍝ make it more blue
       draw
 </code></pre>
 

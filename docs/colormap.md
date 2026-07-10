@@ -16,7 +16,7 @@ The color map editor (shown below) is invoked when you click the Edit button. To
 **Generate** If you modify 2 colors in the grid and click Generate, a smooth gradient between those colors will be generated.<br>
 **Help** Displays help for the Color Map Editor
 
-<img src="img/colormapeditor.png" alt="Color Map Editor" class="center" width="50%">
+<img src="../img/colormapeditor.png" alt="Color Map Editor" class="center" width="50%">
 Click the Update button to preview the effect of your changes - they will not be saved until you click the OK button. 
 
 ### Ctrl-Click
@@ -28,6 +28,6 @@ You can manipulate `cmap` in the APL session. You can either work with it in its
 After manipulating `cmap` you can click the Draw button, or run the `draw` function from the session to update the image. If you used the matrix form of `cmap`, redrawing the image will convert `cmap` back into vector form.
 
 ```
-      cmap ← 0 0 256⌈⍤0 1⊢256 256 256⊤cmap ⍝ make it more blue
+      cmap ← 0 0 255⌈⍤0 1⊢256 256 256⊤cmap ⍝ make it more blue
       draw
 ```

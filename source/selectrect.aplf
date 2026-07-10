@@ -1,6 +1,8 @@
  selectrect ctl;yx;center;wid;hgt;pct;newcenter
  yx←ctl[2 3] ⍝ row and col relative to outer boundary
- :If 2=ctl[4] ⍝ right click? zoom in by half
+ :If 2=ctl[5] ⍝ ctrl key pressed?
+     editpixel yx
+ :ElseIf 2=ctl[4] ⍝ right click?
      center←0.5×top right+bottom left  ⍝ center of the current image
      hgt←top-bottom ⍝ height of the current image
      wid←4×hgt÷3 ⍝ width of the current image

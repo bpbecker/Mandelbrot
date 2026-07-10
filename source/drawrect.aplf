@@ -5,7 +5,6 @@
  hgt←newxy[0]-xy[0]
  wid←(×newxy[1]-xy[1])×⌊4×|hgt÷3
  'f.rect2'⎕WS('size'(hgt,wid))
- ⍝:If 'Mandelbrot'YesNo'Draw new space?'
  loc dim←'f.rect2'⎕WG'points' 'size'
  loc←(loc+dim×dim<0)-offset
  dim←|dim
@@ -19,6 +18,3 @@
  updatestack top bottom left right
  updateset top,bottom,left,right
  draw
- ⍝:Else
- ⍝    ⎕EX'f.rect2'
- ⍝:EndIf

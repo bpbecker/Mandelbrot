@@ -1,0 +1,71 @@
+site_name: Mandelbrot
+repo_url: https://github.com/BPBecker/Mandelbrot
+repo_name: https://github.com/BPBecker/Mandelbrot
+dev_addr: 127.0.0.1:22222
+copyright: Made with <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener"><strong>Material for MkDocs</strong></a><br/>Copyright &copy; 2026 <strong>Brian P Becker</strong>
+nav:
+    - Overview: 'index.md'
+    - Reference: 'reference.md'
+    - "Color Map": 'colormap.md'
+    - History: 'history.md'
+    - "Release Notes": 'release-notes.md'
+    - License: 'LICENSE.md'
+      
+theme:
+  favicon: 'img/favicon.png'
+  logo: 'img/logo.svg'
+  features:
+    - navigation.sections
+    - navigation.instant
+  name: material
+
+extra: 
+  generator: false
+  version:
+    provider: mike
+
+extra_css:
+  - css/main.css
+
+plugins:
+  - search
+  - print-site:
+      add_to_navigation: true
+      print_page_title: 'Print'
+      add_print_site_banner: false
+      # Table of contents
+      add_table_of_contents: false
+      toc_title: 'Table of Contents'
+      toc_depth: 6
+      # Content-related
+      add_full_urls: false
+      enumerate_headings: false
+      enumerate_figures: false
+      add_cover_page: true
+      cover_page_template: ""
+      path_to_pdf: ""
+      include_css: true
+      enabled: true
+      exclude:
+
+markdown_extensions:
+  - admonition
+  - abbr
+  - footnotes
+  - attr_list 
+  - def_list
+  - markdown_tables_extended
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.highlight:
+      default_lang: APL
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - toc:
+      title: On this page
+
+extra_javascript:
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js

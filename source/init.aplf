@@ -5,12 +5,16 @@
  ⍝      2) establishes the size (picdims) and location (offset) of the picture space
  ⍝      3) establishes initial top, bottom, left, and right coordinates
  ⍝      4) establishes initial view (set) and colormap (cmap)
- processes←20 ⍝ number of isolates (processes)
+ processes←2×1111⌶⍬ ⍝ number of isolates (processes) initially set to 2 per processor
  picdims←768 1024
- zoom←⊃zooms←2 5 10 20 50
+ zoom←⊃zooms←2 5 10 20 50 ⍝ zoom levels
+ top bottom left←1.25 ¯1.25 ¯2.25 ⍝ starting box
+ right←left+4×(top-bottom)÷3
+ stack←⍬
  'f'⎕WC'form' 'Mandelbrot Set Explorer'('coord' 'pixel')('size'(picdims+border←180 240))('sizeable' 0)('maxbutton' 0) ⍝ overall form
  'f.image'⎕WC'image'('points'(offset←90 120))
  'f.rect'⎕WC'rect'offset picdims('event' 'mousedown' 'selectrect') ⍝ picdims is
+
  'f.bdraw'⎕WC'button' 'Draw'('size' 20 70)('posn' 90 25)('event' 'select' 1)
  'f.bedit'⎕WC'button' 'Edit'('size' 20 70)('posn' 120 25)('event' 'select' 1)
  'f.bsave'⎕WC'button' 'Save'('size' 20 70)('posn' 150 25)('event' 'select' 'SaveAsPNG')
@@ -18,6 +22,8 @@
  'f.bquit'⎕WC'button' 'Quit'('size' 20 70)('posn' 210 25)('event' 'select' 1)
  'f.bhelp'⎕WC'button' 'Help'('size' 20 70)('posn' 240 25)('event' 'select' 'displayMainHelp')
  'f.color'⎕WC'button' 'Colorize'('size' 20 70)('posn' 270 25)('event' 'select' 'colorize')
+ 'f.cb'⎕WC'colorbutton'('size' 50 80)('posn' 300 25)('event' 'colorchange' 1)('active' 0)
+
  'f.pal'⎕WC'group' 'Color Palette Size'('posn' 10 450)('size' 50 120)('border' 0)
  'f.pal.p256'⎕WC'button' '256'('style' 'radio')('posn' 20 10)('event' 'select' 'toggle')
  'f.pal.p1024'⎕WC'button' '1024'('style' 'radio')('posn' 20 60)('event' 'select' 'toggle')('state' 1)
@@ -32,14 +38,11 @@
  'f.prev'⎕WC'button' '<< Prev'('size' 25 60)('posn' 58 450)('visible' 1)('event' 'select' 1)
  'f.next'⎕WC'button' 'Next >>'('size' 25 60)('posn' 58 510)('visible' 1)('event' 'select' 1)
  'f.isomsg'⎕WC'Text'((⍕processes),' Isolate Processes Initializing')('Points'(30 750))('Visible' 0)('FCol'(255 0 0))
- 'f.speed' ⎕WC 'trackbar' ('posn' 50 750)('size' 30 200)('limits' 1 20)('thumb' 10)
- top bottom left←1.25 ¯1.25 ¯2.25
- right←left+4×(top-bottom)÷3
- stack←⍬
- updatestack top,bottom,left,right
+ 'f.speed'⎕WC'trackbar'('posn' 50 750)('size' 30 200)('limits' 1 20)('thumb' 10)
  'f.top'⎕WC'edit'(⍕top)(10 180)(20 250)('style' 'single')('fieldtype' 'longnumeric')
  'f.bottom'⎕WC'edit'(⍕bottom)(35 180)(20 250)('style' 'single')('fieldtype' 'longnumeric')
  'f.left'⎕WC'edit'(⍕left)(60 180)(20 250)('style' 'single')('fieldtype' 'longnumeric')
+ updatestack top,bottom,left,right
  init_isolates processes
  set←mandelbrotset←picdims buildset top bottom left right
  cmaps←cmapbase←{6::make_cmapbase ⋄ cmapbase}⍬

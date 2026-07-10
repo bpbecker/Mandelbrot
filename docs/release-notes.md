@@ -1,0 +1,1 @@
+While I don't plan on publishing formal "releases" (at least not yet), this page will serve to annotate future updates.

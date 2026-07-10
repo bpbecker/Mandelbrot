@@ -35,6 +35,10 @@ lp:z←⎕DQ'.' ⍝ wait for something to happen
          processes←f.threads.Value
          init_isolates processes
          →lp
+     :Case 'f.cb'
+         cmap[set[⊂f.cb.Data]]←256⊥2⊃z
+         f.cb.Active←0
+         →l1
      :Else
          ⎕←'Unhandled event? '(⍕z)
          →lp

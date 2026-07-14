@@ -7,7 +7,7 @@
  ⍝      4) establishes initial view (set) and colormap (cmap)
  processes←2×1111⌶⍬ ⍝ number of isolates (processes) initially set to 2 per processor
  picdims←768 1024
- zoom←⊃zooms←2 5 10 20 50 ⍝ zoom levels
+ zoom←3⊃zooms←1 2 5 10 20 50 ⍝ zoom levels
  top bottom left←1.25 ¯1.25 ¯2.25 ⍝ starting box
  right←left+4×(top-bottom)÷3
  stack←⍬
@@ -33,7 +33,7 @@
  'f.isolab'⎕WC'text' 'Isolate Processes to Use'('points'(10 750))
  'f.threads'⎕WC'edit'(⍕processes)('size'(20 50))('posn' 7 910)('style' 'single')('fieldtype' 'numeric')('decimals' 0)('event'('select' 'change')1)
  'f.zlab'⎕WC'text' 'Zoom Level'('points' 10 1000)
- 'f.zoom'⎕WC'combo'(⍕¨zooms)('size' 20 50)('posn' 7 1080)('selitems'(1↑⍨≢zooms))('event' 'select' 'setzoom')
+ 'f.zoom'⎕WC'combo'(⍕¨zooms)('size' 20 50)('posn' 7 1080)('selitems'(zoom=zooms))('event' 'select' 'setzoom')
  'f.labs'⎕WC'Text'('Top' 'Bottom' 'Left')((10 35 60)120)
  'f.prev'⎕WC'button' '<< Prev'('size' 25 60)('posn' 58 450)('visible' 1)('event' 'select' 1)
  'f.next'⎕WC'button' 'Next >>'('size' 25 60)('posn' 58 510)('visible' 1)('event' 'select' 1)

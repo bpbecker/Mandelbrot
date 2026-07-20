@@ -1,4 +1,4 @@
- init
+ init;border
  ⍝ initialize Mandelbrot Set explorer
  ⍝ Brian Becker 2006
  ⍝ This 1) builds the form
@@ -28,8 +28,8 @@
  'f.pal.p256'⎕WC'button' '256'('style' 'radio')('posn' 20 10)('event' 'select' 'toggle')
  'f.pal.p1024'⎕WC'button' '1024'('style' 'radio')('posn' 20 60)('event' 'select' 'toggle')('state' 1)
  'f.prec'⎕WC'group' 'Precision'('posn' 10 600)('size' 50 120)('border' 0)
- 'f.prec.p645'⎕WC'button' '645'('style' 'radio')('posn' 20 10)('event' 'select' 'toggle')
- 'f.prec.p1287'⎕WC'button' '1287'('style' 'radio')('posn' 20 60)('event' 'select' 'toggle')('state' 1)
+ 'f.prec.p645'⎕WC'button' '645'('style' 'radio')('posn' 20 10)('event' 'select' 'toggle')('state' 1)
+ 'f.prec.p1287'⎕WC'button' '1287'('style' 'radio')('posn' 20 60)('event' 'select' 'toggle')
  'f.isolab'⎕WC'text' 'Isolate Processes to Use'('points'(10 750))
  'f.threads'⎕WC'edit'(⍕processes)('size'(20 50))('posn' 7 910)('style' 'single')('fieldtype' 'numeric')('decimals' 0)('event'('select' 'change')1)
  'f.zlab'⎕WC'text' 'Zoom Level'('points' 10 1000)

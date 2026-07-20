@@ -1,5 +1,5 @@
  mandelbrot;z;top;bottom;left;right;offset;picdims;b;stack;stackpos;isolates;processes
- (⎕IO ⎕FR ⎕PP)←0 1287 30
+ (⎕IO ⎕FR ⎕PP)←0 645 30
  init
 l1:draw ⍝ draw the set
 lp:z←⎕DQ'.' ⍝ wait for something to happen

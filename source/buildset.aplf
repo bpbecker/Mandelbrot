@@ -6,11 +6,11 @@
  (height width hirez)←3↑size
  vert←bottom-top                             ⍝ vertical dimension
  horz←right-left                             ⍝ horizontal dimension
- rows←(1⌈processes){¯2-/⌈⍵,⍨(⍳⍺)×⍵÷⍺}height        ⍝ divide image among processors (height=+/rows)
+ rows←(1⌈processes){¯2-/⌈⍵,⍨(⍳⍺)×⍵÷⍺}height  ⍝ divide image among processors (height=+/rows)
  incr←vert÷height                            ⍝ vertical increment
  imaginary←↓rows,incr,⍪top+incr×¯1↓0,+\rows  ⍝ imaginary arguments to buildset_core
- real←width,(horz÷width),left,hirez          ⍝ real arguments to buildset_core
- :If processes=0                               ⍝ if not using isolates
+ real←width,(horz÷width),left,hirez,⎕FR      ⍝ real arguments to buildset_core
+ :If processes=0                             ⍝ if not using isolates
      r←real buildset_core⊃imaginary          ⍝ build the image here
  :Else
      r←⊃⍪/(⊂real)isolates.buildset_core imaginary ⍝ otherwise let the isolates to it

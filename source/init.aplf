@@ -46,5 +46,5 @@
  init_isolates processes
  set←mandelbrotset←picdims buildset top bottom left right
  cmaps←cmapbase←{6::make_cmapbase ⋄ cmapbase}⍬
- cmap←f.pal.p1024.State⊃cmaps
+ cmap←(⊢f.pal.p1024.State)⊃cmaps
  rez←256 1024[f.pal.p1024.State]

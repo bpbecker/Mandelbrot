@@ -1,5 +1,5 @@
  swapcmap ctl
  cmaps[~f.pal.p1024.State]←⊂cmap
- cmap←f.pal.p1024.State⊃cmaps
+ cmap←(⊢f.pal.p1024.State)⊃cmaps
  updateset top,bottom,left,right
  draw

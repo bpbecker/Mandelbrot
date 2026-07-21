@@ -19,7 +19,7 @@ lp:z←⎕DQ'.' ⍝ wait for something to happen
          right←left+4×(top-bottom)÷3
          updatestack top,bottom,left,right
          set←mandelbrotset ⍝ reset to original set
-         cmap←f.pal.p1024.State⊃cmapbase ⍝ reset to original colormap
+         cmap←(⊢f.pal.p1024.State)⊃cmapbase ⍝ reset to original colormap
          →l1
      :Case 'f.prev'
          stackpos-←1

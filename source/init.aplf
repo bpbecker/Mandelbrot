@@ -33,7 +33,7 @@
  'f.isolab'⎕WC'text' 'Isolate Processes to Use'('points'(10 750))
  'f.threads'⎕WC'edit'(⍕processes)('size'(20 50))('posn' 7 910)('style' 'single')('fieldtype' 'numeric')('decimals' 0)('event'('select' 'change')1)
  'f.zlab'⎕WC'text' 'Zoom Level'('points' 10 1000)
- 'f.zoom'⎕WC'combo'(⍕¨zooms)('size' 20 50)('posn' 7 1080)('selitems'(zoom=zooms))('event' 'select' 'setzoom')
+ 'f.zoom'⎕WC'combo'(⍕¨zooms)('style' 'dropedit')('size' 20 50)('posn' 7 1080)('selitems'(zoom=zooms))('event' ('select' 'change') 'setzoom')
  'f.labs'⎕WC'Text'('Top' 'Bottom' 'Left')((10 35 60)120)
  'f.prev'⎕WC'button' '<< Prev'('size' 25 60)('posn' 58 450)('visible' 1)('event' 'select' 1)
  'f.next'⎕WC'button' 'Next >>'('size' 25 60)('posn' 58 510)('visible' 1)('event' 'select' 1)

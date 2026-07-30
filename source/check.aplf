@@ -4,7 +4,7 @@
  t←validnum'f.top'⎕WG'text' ⍝ validate top coordinate
  bt←validnum'f.bottom'⎕WG'text' ⍝ validate bottom coordinate
  l←validnum'f.left'⎕WG'text' ⍝ validate left coordinate
- →(∨/mask←⊃¨0∊¨⍴¨t bt l)⍴err ⍝ check for any errors
+ →(∨/mask←0∘∊∘⍴¨t bt l)⍴err ⍝ check for any errors
  (t bt)←(t<bt)⌽t,bt ⍝ if bottom > top, swap them
  (top bottom)←t bt
  left←l

@@ -1,2 +1,11 @@
-setzoom ctl
-zoom←⊃f.zoom.SelItems/zooms
+ setzoom ctl;i;t;oldzoom
+ oldzoom←zoom
+ :If 0∊⍴i←⍸f.zoom.SelItems
+     :If 0≠t←⊃⊃(//)⎕VFI'¯'@('-'∘=)⊢f.zoom.Text
+         zoom←{⍵=0:1 ⋄ ⍵<0:÷|⍵ ⋄ ⍵}t
+     :Else
+         f.zoom.Text←⍕oldzoom
+     :EndIf
+ :Else
+     zoom←⊃f.zoom.SelItems/zooms
+ :EndIf

@@ -1,4 +1,4 @@
- init;border
+﻿ init;border
  ⍝ initialize Mandelbrot Set explorer
  ⍝ Brian Becker 2006
  ⍝ This 1) builds the form
@@ -33,12 +33,13 @@
  'f.isolab'⎕WC'text' 'Isolate Processes to Use'('points'(10 750))
  'f.threads'⎕WC'edit'(⍕processes)('size'(20 50))('posn' 7 910)('style' 'single')('fieldtype' 'numeric')('decimals' 0)('event'('select' 'change')1)
  'f.zlab'⎕WC'text' 'Zoom Level'('points' 10 1000)
- 'f.zoom'⎕WC'combo'(⍕¨zooms)('style' 'dropedit')('size' 20 50)('posn' 7 1080)('selitems'(zoom=zooms))('event' ('select' 'change') 'setzoom')
+ 'f.zoom'⎕WC'combo'(⍕¨zooms)('style' 'dropedit')('size' 20 50)('posn' 7 1080)('selitems'(zoom=zooms))('event'('select' 'change')'setzoom')
  'f.labs'⎕WC'Text'('Top' 'Bottom' 'Left')((10 35 60)120)
  'f.prev'⎕WC'button' '<< Prev'('size' 25 60)('posn' 58 450)('visible' 1)('event' 'select' 1)
  'f.next'⎕WC'button' 'Next >>'('size' 25 60)('posn' 58 510)('visible' 1)('event' 'select' 1)
  'f.isomsg'⎕WC'Text'((⍕processes),' Isolate Processes Initializing')('Points'(30 750))('Visible' 0)('FCol'(255 0 0))
- 'f.speed'⎕WC'trackbar'('posn' 50 750)('size' 30 200)('limits' 1 20)('thumb' 10)
+ 'f.sgrp'⎕WC'group' 'Colorize Speed'('posn' 30 750)('size' 50 210)
+ 'f.sgrp.speed'⎕WC'trackbar'('posn' 20 5)('size' 30 200)('limits' 1 20)('thumb' 1)
  'f.top'⎕WC'edit'(⍕top)(10 180)(20 250)('style' 'single')('fieldtype' 'longnumeric')
  'f.bottom'⎕WC'edit'(⍕bottom)(35 180)(20 250)('style' 'single')('fieldtype' 'longnumeric')
  'f.left'⎕WC'edit'(⍕left)(60 180)(20 250)('style' 'single')('fieldtype' 'longnumeric')

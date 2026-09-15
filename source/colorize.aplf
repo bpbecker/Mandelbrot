@@ -5,7 +5,7 @@
          cmap←randomizePalette?¯1+256*3
          draw
          :Trap 6 ⍝ value error on f in case form was closed
-             ⎕DL 2÷f.speed.Thumb
+             ⎕DL 2÷f.sgrp.speed.Thumb
          :Else
              →0
          :EndTrap

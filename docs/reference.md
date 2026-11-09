@@ -20,6 +20,9 @@ Zoom Level is the factor by which the set will be zoomed in when you right-click
 ### Slider Bar
 The slider bar controls the delay between updates when the Colorize button is clicked. The delay ranges from 2 seconds to 0.1 seconds.
 
+### On Top?
+This checkbox controls whether the explorer window remains on top of the APL session. The default is to remain on top.
+
 ## Buttons
 
 ### Draw

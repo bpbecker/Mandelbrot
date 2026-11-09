@@ -1,4 +1,4 @@
-﻿ init;border
+ init;border
  ⍝ initialize Mandelbrot Set explorer
  ⍝ Brian Becker 2006
  ⍝ This 1) builds the form
@@ -11,7 +11,7 @@
  top bottom left←1.25 ¯1.25 ¯2.25 ⍝ starting box
  right←left+4×(top-bottom)÷3
  stack←⍬
- 'f'⎕WC'form' 'Mandelbrot Set Explorer'('coord' 'pixel')('size'(picdims+border←180 240))('sizeable' 0)('maxbutton' 0) ⍝ overall form
+ 'f'⎕WC'form' 'Mandelbrot Set Explorer'('coord' 'pixel')('size'(picdims+border←180 240))('sizeable' 0)('maxbutton' 0)('ontop' 1) ⍝ overall form
  'f.image'⎕WC'image'('points'(offset←90 120))
  'f.rect'⎕WC'rect'offset picdims('event' 'mousedown' 'selectrect') ⍝ picdims is
 
@@ -43,6 +43,7 @@
  'f.top'⎕WC'edit'(⍕top)(10 180)(20 250)('style' 'single')('fieldtype' 'longnumeric')
  'f.bottom'⎕WC'edit'(⍕bottom)(35 180)(20 250)('style' 'single')('fieldtype' 'longnumeric')
  'f.left'⎕WC'edit'(⍕left)(60 180)(20 250)('style' 'single')('fieldtype' 'longnumeric')
+ 'f.ontop' ⎕WC 'button' 'On Top?'('State' f.OnTop)('align' 'left')('style' 'check')('posn' 36 1000)('event' 'select' '⍎f.OnTop←~f.OnTop')
  updatestack top,bottom,left,right
  init_isolates processes
  set←mandelbrotset←picdims buildset top bottom left right
